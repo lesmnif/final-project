@@ -2,6 +2,10 @@
 
 Finish Log In / Sign Up css
 
+## DAY 2
+
+Minor Adjustments SignUp, logOut button and Add Task Form
+
 # final-boiler-plate
 
 This template should help get you started developing the final project running on Vue 3 with the composition API, Pinia as a state management tool, vue router, vite and lastly Supabase running on the backend.

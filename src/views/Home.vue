@@ -1,8 +1,15 @@
 <template>
-  <div>hello</div>
+  <div>
+    <NavBar/>
+    <NewTask/>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import NavBar from "../components/Nav.vue"
+import SignIn from "../components/SignIn.vue";
+import NewTask from "../components/NewTask.vue";
+</script>
 
 <style></style>
 

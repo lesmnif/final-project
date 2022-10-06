@@ -23,6 +23,9 @@
           <p v-if="errorMsg" class=" text-sm font-semibold text-center text-red-500">
               {{ errorMsg }}
             </p>
+            <p v-if="successMsg" class=" text-sm font-semibold text-center text-green-500">
+              {{ successMsg }}
+            </p>
           <div class="mt-6">
             <form @submit.prevent="signUp" class="space-y-6">
               <div>
@@ -106,6 +109,7 @@ import { ref } from "vue"
 import { useRouter } from "vue-router"
 import PersonalRouter from "./PersonalRouter.vue"
 import { useUserStore } from "../stores/user"
+import { supabase } from "../supabase";
 // Route Variables
 const route = "/auth/login"
 const buttonText = "Log In"
@@ -114,6 +118,7 @@ const email = ref(null)
 const password = ref(null)
 const confirmPassword = ref(null)
 const errorMsg = ref(null)
+const successMsg = ref(null)
 // Error Message
 // Show hide password variable
 // Show hide confrimPassword variable
@@ -124,7 +129,10 @@ async function signUp() {
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value)
-      redirect.push({ path: "/auth/login" })
+      successMsg.value = "Validate your confirm signup link and Log In!"
+      setTimeout(() =>{
+        redirect.push({ path: "/auth/login" })
+      }, 3000)
     } catch (error) {
       console.log("this is my error", error)
       errorMsg.value = error.message

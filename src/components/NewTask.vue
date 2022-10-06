@@ -1,8 +1,58 @@
 <template>
-  <div>New Task Component</div>
+  <form class="space-y-6" action="#" method="POST">
+    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-2 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Add New Task</h3>
+        </div>
+        <div class="mt-5 space-y-6 md:col-span-2 md:mt-0">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="col-span-3 sm:col-span-2">
+              <label
+                for="company-website"
+                class="block text-sm font-medium text-gray-700"
+                >Title</label
+              >
+              <div class="mt-1 flex rounded-md shadow-sm border-black">
+                <input
+                  type="text"
+                  name="company-website"
+                  id="company-website"
+                  class="block w-full flex-1 rounded-md border border-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="about" class="block text-sm font-medium text-gray-700"
+              >Description</label
+            >
+            <div class="mt-1">
+              <textarea
+                id="about"
+                name="about"
+                rows="3"
+                class="block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="submit"
+              class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </template>
 
 <script setup>
+
 // constant to save a variable that define the custom event that will be emitted to the homeView
 
 // constant to save a variable that holds the value of the title input field of the new task
