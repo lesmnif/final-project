@@ -1,14 +1,37 @@
 <template>
   <div>
     <NavBar/>
-    <NewTask/>
+    <NewTask
+      @handleClick="handleClick"
+    />
+    <TaskItem
+      :tasks="arrayTask"
+    />
   </div>
 </template>
 
 <script setup>
-  import NavBar from "../components/Nav.vue"
-import SignIn from "../components/SignIn.vue";
+
+import NavBar from "../components/Nav.vue"
 import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+import { useTaskStore } from "../stores/task";
+import { ref } from "vue";
+
+const arrayTask = ref(null);
+
+async function getTask() {
+  arrayTask.value = await useTaskStore().fetchTasks();
+  console.log(arrayTask);
+}
+
+getTask();
+
+const handleClick = async (title, description) => {
+  console.log("heyo imentering")
+  await useTaskStore().addTask(title, description);
+  getTask();
+};
 </script>
 
 <style></style>
