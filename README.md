@@ -10,6 +10,11 @@ Minor Adjustments SignUp, logOut button and Add Task Form
 
 Adding Tasks and Displaying them
 
+## DAY 4
+
+Delete Task / Edit modal
+
+
 # final-boiler-plate
 
 This template should help get you started developing the final project running on Vue 3 with the composition API, Pinia as a state management tool, vue router, vite and lastly Supabase running on the backend.

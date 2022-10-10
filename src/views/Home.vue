@@ -5,18 +5,20 @@
       @handleClick="handleClick"
     />
     <TaskItem
+      @handleDelete="handleDelete"
       :tasks="arrayTask"
     />
   </div>
 </template>
 
 <script setup>
-
 import NavBar from "../components/Nav.vue"
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import { supabase } from "../supabase"
 import { useTaskStore } from "../stores/task";
 import { ref } from "vue";
+
 
 const arrayTask = ref(null);
 
@@ -27,11 +29,26 @@ async function getTask() {
 
 getTask();
 
+const handleDelete = async(id) =>{
+  try{
+    const {data, error} = await supabase
+    .from('tasks')
+    .delete()
+    .match({id:id})
+
+    getTask()
+  }catch(error){
+    console.log("this is my error:", error)
+  }
+}
+
 const handleClick = async (title, description) => {
-  console.log("heyo imentering")
   await useTaskStore().addTask(title, description);
   getTask();
 };
+
+
+
 </script>
 
 <style></style>
