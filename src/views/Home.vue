@@ -6,6 +6,8 @@
     />
     <TaskItem
       @handleDelete="handleDelete"
+      @handleEditTask="handleEditTask"
+      @handleComplete="handleComplete"
       :tasks="arrayTask"
     />
   </div>
@@ -40,6 +42,16 @@ const handleDelete = async(id) =>{
   }catch(error){
     console.log("this is my error:", error)
   }
+}
+
+const handleComplete = async (id, is_complete) =>{
+  await useTaskStore().taskComplete(id, is_complete)
+  getTask()
+}
+
+const handleEditTask = async (title, description, id) =>{
+  await useTaskStore().editTask(title,description, id)
+  getTask()
 }
 
 const handleClick = async (title, description) => {

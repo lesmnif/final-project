@@ -14,6 +14,9 @@ Adding Tasks and Displaying them
 
 Delete Task / Edit modal
 
+## DAY 5
+
+Finish Edit and Done Functions
 
 # final-boiler-plate
 
