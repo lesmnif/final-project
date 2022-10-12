@@ -104,7 +104,7 @@
     <li
       v-for="task in props.tasks"
       :key="task.id"
-      class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+      class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow border border-gray-400"
     >
       <div class="flex w-full items-center justify-between space-x-6 p-6">
         <div class="flex-1 truncate items-center">
@@ -113,10 +113,12 @@
             <span
               :class="
                 task.is_complete
-                  ? 'inline-block flex-shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-green-800'
-                  : 'inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800'
+                  ? 'inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800'
+                  : 'inline-block flex-shrink-0 rounded-full bg-yellow-200 px-2 py-0.5 text-xs font-medium text-yellow-800'
               "
-              >{{ task.title }}</span
+              >{{
+                task.title + ` - ${task.is_complete ? "Done" : "Pending..."}`
+              }}</span
             >
           </div>
           <p class="mt-1 truncate text-sm text-gray-500">
@@ -226,6 +228,13 @@ import { useTaskStore } from "../stores/task"
 import { supabase } from "../supabase"
 import ModalDelete from "../components/ModalDelete.vue"
 import EditModal from "./EditModal.vue"
+import { createToast } from "mosha-vue-toastify"
+// import the styling for the toast
+import "mosha-vue-toastify/dist/style.css"
+
+const toast = (message) => {
+  createToast(message, { type: "success" })
+}
 
 const props = defineProps({
   tasks: Array,
@@ -241,6 +250,7 @@ const errorMsg = ref(null)
 const emit = defineEmits(["handleDelete", "handleEditTask", "handleComplete"])
 
 const deleteitem = async (id) => {
+  toast("You deleted the Task!")
   emit("handleDelete", id)
 }
 
@@ -251,6 +261,7 @@ const handleComplete = async (id, is_complete) => {
 const handleEditAction = async (title, description, id) => {
   if (title.length > 3) {
     open.value = false
+    toast("You edditted your task successfully!")
     return emit("handleEditTask", title, description, id)
   }
   return alert("Title must have at least 4 characters")

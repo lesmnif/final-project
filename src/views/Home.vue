@@ -20,7 +20,13 @@ import TaskItem from "../components/TaskItem.vue";
 import { supabase } from "../supabase"
 import { useTaskStore } from "../stores/task";
 import { ref } from "vue";
+import { createToast } from "mosha-vue-toastify"
+// import the styling for the toast
+import "mosha-vue-toastify/dist/style.css"
 
+const toast = (message) => {
+  createToast(message, { type: "success" })
+}
 
 const arrayTask = ref(null);
 
@@ -46,6 +52,7 @@ const handleDelete = async(id) =>{
 
 const handleComplete = async (id, is_complete) =>{
   await useTaskStore().taskComplete(id, is_complete)
+  toast(is_complete ? "You rewinded your task successfully" : "You completed your task successfully", {type: "success"})
   getTask()
 }
 

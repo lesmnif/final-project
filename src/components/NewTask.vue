@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-6">
-    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
+    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6 border border-black">
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Add New Task</h3>
@@ -52,6 +52,14 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import { useTaskStore } from "../stores/task";
+import { createToast } from 'mosha-vue-toastify';
+// import the styling for the toast
+import 'mosha-vue-toastify/dist/style.css'
+
+
+const toast = (message) => {
+  createToast(message, {type: "success"})
+}
 
 const emit = defineEmits(["handleClick"])
 
@@ -63,6 +71,7 @@ function addTask(){
       return errorMsg.value = null
     },2000)
   }
+  toast("You created a new Task!")
   emit("handleClick", title.value, description.value)
   title.value=""
   description.value=""
@@ -71,12 +80,6 @@ function addTask(){
 const title = ref("")
 const description = ref("")
 const errorMsg = ref(null)
-
-const handleClick = async () => {
-
-  await useTaskStore().addTask(title.value, description.value)
-  await useTaskStore().fetchTasks()
-}
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 
