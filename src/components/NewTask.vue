@@ -1,13 +1,13 @@
 <template>
-  <div class="space-y-6">
-    <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6 border border-black">
+  <div class="space-y-6 mx-4">
+    <div class="bg-white px-4 py-5 shadow rounded-lg sm:p-6 border border-black">
       <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Add New Task</h3>
           <p class="text-red-500">{{errorMsg}}</p>
         </div>
         <div class="mt-5 space-y-6 md:col-span-2 md:mt-0">
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-2 gap-6">
             <div class="col-span-3 sm:col-span-2">
               <label
                 class="block text-sm font-medium text-gray-700"
@@ -38,7 +38,7 @@
           <div class="flex justify-end">
             <button
               @click="addTask()"
-              class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-1 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Save
             </button>

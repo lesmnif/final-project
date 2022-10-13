@@ -22,6 +22,10 @@ Finish Edit and Done Functions
 
 Finish some styles and toasts
 
+## DAY 7
+
+Finish CSS
+
 # final-boiler-plate
 
 This template should help get you started developing the final project running on Vue 3 with the composition API, Pinia as a state management tool, vue router, vite and lastly Supabase running on the backend.

@@ -139,7 +139,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
+                stroke="green"
                 class="w-6 h-6"
               >
                 <path
@@ -155,7 +155,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
+                stroke="green"
                 class="w-6 h-6"
               >
                 <path
@@ -176,7 +176,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
+                stroke="#1434A4"
                 class="w-6 h-6"
               >
                 <path
@@ -197,7 +197,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
+                stroke="#cc0000"
                 class="w-6 h-6"
               >
                 <path
