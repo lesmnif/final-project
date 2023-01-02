@@ -13,7 +13,6 @@
     "mosha-vue-toastify": "^1.0.23",
     "pinia": "^2.0.17",
     "pinia-plugin-persist": "^1.0.0",
-    "react-hot-toast": "^2.4.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3",
     "vue-toastify": "^1.8.1"
